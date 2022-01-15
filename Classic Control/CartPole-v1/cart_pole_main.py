@@ -4,8 +4,9 @@ from stable_baselines3 import A2C
 
 env = gym.make('CartPole-v1')
 episodes_total = 5
-model = A2C('MlpPolicy', env, verbose=1)
-model.learn(total_timesteps=100000)
+model = A2C('MlpPolicy', env, verbose=1, tensorboard_log="./a2c_cartpole_tensorboard/")
+# tensorboard --logdir ./a2c_cartpole_tensorboard/
+model.learn(total_timesteps=200000)
 
 # Save the agent
 model.save("a2c_cartpole")
